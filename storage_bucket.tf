@@ -22,3 +22,4 @@ module "gcs_buckets" {
     second = "user:spam@example.com,user:eggs@example.com"
   }
 }
+
