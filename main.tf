@@ -1,6 +1,6 @@
 locals {
 gcs_bucket_list = ["bucket-account"]
-
+}
 
 
 module "gcs_buckets" {
