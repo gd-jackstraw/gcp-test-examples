@@ -9,7 +9,7 @@ module "gcs_buckets" {
   project_id  = var.projectid
   
   count = 5
-  names                = var.gcs_bucket_list
+  names                = local.gcs_bucket_list
   
   
   prefix = var.prefix
