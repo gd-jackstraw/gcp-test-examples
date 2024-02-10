@@ -8,8 +8,8 @@ module "gcs_buckets" {
   version = "~> 5.0"
   project_id  = var.projectid
   
-  for_each            = {for list in local.gcs_bucket_list: list=>list}
-  names                = "${var.prefix}list"
+  count = 5
+  names                = var.gcs_bucket_list
   
   
   prefix = var.prefix
