@@ -1,3 +1,5 @@
 projectid = "deft-ocean-413923"
 prefix = "mcit-philippe"
 bucket_admin = "terraform-auth-test@deft-ocean-413923.iam.gserviceaccount.com"
+account_id = "103012047284365042334"
+display_name = "terraform-auth-test"
