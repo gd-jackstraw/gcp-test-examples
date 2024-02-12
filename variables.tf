@@ -9,3 +9,13 @@ variable "prefix"{
 variable "bucket_admin" {
   type = string
 }
+
+variable "account_id" {
+	type = string
+	description = "Unique service account ID"
+}
+
+variable "display_name" {
+	type = string
+	description = "Unique service account display name"
+}
