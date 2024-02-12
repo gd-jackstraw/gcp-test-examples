@@ -19,3 +19,7 @@ variable "display_name" {
 	type = string
 	description = "Unique service account display name"
 }
+
+variable "service_account" {
+	type = string
+}
