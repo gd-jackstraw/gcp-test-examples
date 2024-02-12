@@ -3,8 +3,21 @@ resource "google_service_account" "default" {
   display_name = var.display_name
 }
 
+locals{
+ container-cluster =[for f in fileset("${path.module}/configs/", "[^_]*.yaml") : yamldecode(file("${path.module}/configs/${f}"))]
+ container-cluster-flatten = flatten([
+    for info in local.container-cluster : [
+      for cc in try(info.containerclusterlist, []) :{
+        name=cc.name
+      }
+    ]
+])
+}
+
+
 resource "google_container_cluster" "primary" {
-  name     = "my-gke-cluster"
+  for_each            ={for kcc in local.container-cluster-flatten: "${kcc.name}"=>kcc }
+  name                = each.value.name
   location = "us-central1"
 
   # We can't create a cluster with no node pool defined, but we want to only use
