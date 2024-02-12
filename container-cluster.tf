@@ -8,7 +8,7 @@ locals{
  container-cluster-flatten = flatten([
     for info in local.container-cluster : [
       for cc in try(info.containerclusterlist, []) :{
-        name = cc.name
+        
       }
     ]
 ])
