@@ -16,7 +16,7 @@ locals{
 
 
 resource "google_container_cluster" "primary" {
-  name     = "primary_one" 
+  name     = "primary-one" 
   location = "us-central1"
 
   # We can't create a cluster with no node pool defined, but we want to only use
