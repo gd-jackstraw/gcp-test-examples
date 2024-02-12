@@ -16,8 +16,7 @@ locals{
 
 
 resource "google_container_cluster" "primary" {
-  for_each            ={for kcc in local.container-cluster-flatten: "${kcc.name}"=>kcc }
-  name                = each.value.name
+  name     = "primary_one" 
   location = "us-central1"
 
   # We can't create a cluster with no node pool defined, but we want to only use
