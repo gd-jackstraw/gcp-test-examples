@@ -11,7 +11,7 @@ locals{
  container-cluster-flatten = flatten([
     for info in local.container-cluster : [
       for cc in try(info.containerclusterlist, []) :{
-        
+        name = cc.name
       }
     ]
 ])
@@ -19,7 +19,8 @@ locals{
 
 
 resource "google_container_cluster" "primary" {
-  name     = "primary-one" 
+  for_each            ={for kcc in local.container-cluster-flatten: "${kcc.name}"=>kcc }
+  name                = each.value.name
   location = "us-central1"
   
 
