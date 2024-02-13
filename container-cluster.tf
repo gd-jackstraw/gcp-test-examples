@@ -1,12 +1,10 @@
-#resource "google_service_account" "default" {
- # account_id   = var.account_id
- # display_name = var.display_name
-#}
-
 resource "google_service_account" "default" {
-  account_id   = "service-account-id"
-  display_name = "Service Account"
+ account_id   = var.account_id
+ display_name = var.display_name
+ project = var.projectid
 }
+
+
 
 locals{
  container-cluster =[for f in fileset("${path.module}/configs/", "[^_]*.yaml") : yamldecode(file("${path.module}/configs/${f}"))]
