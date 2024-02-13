@@ -1,5 +1,5 @@
 containerclusterlist:
-  -name: montrealcollegecluster1
-  -name: montrealcollegecluster2
-  -name: montrealcollegecluster3
-  -name: montrealcollegecluster4
+  - name: montrealcollegecluster1
+  - name: montrealcollegecluster2
+  - name: montrealcollegecluster3
+  - name: montrealcollegecluster4
