@@ -32,7 +32,8 @@ resource "google_container_cluster" "primary" {
 }
 
 resource "google_container_node_pool" "primary_preemptible_nodes" {
-  name       = "my-node-pool"
+ for_each               = google_container_cluster.primary
+ name                   = "${each.key}"
   location   = "us-central1"
   project = var.projectid
   cluster    = google_container_cluster.primary.name
