@@ -36,7 +36,7 @@ resource "google_container_node_pool" "primary_preemptible_nodes" {
  name                   = "${each.key}"
   location   = "us-central1"
   project = var.projectid
-  cluster    = google_container_cluster.primary.name
+  cluster    = each.value.id
   node_count = 1
 
   node_config {
